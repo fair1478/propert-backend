@@ -20,8 +20,12 @@ app.listen(port, () => {
 
 app.use(cors());
 
-app.get("/", jwtValidate, (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World!");
+});
+
+app.get("/testAuth", jwtValidate, (req, res) => {
+  res.send("Hello World!, you are authenticated");
 });
 
 app.post("/auth/login", async (req, res) => {
